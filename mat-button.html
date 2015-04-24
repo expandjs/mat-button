@@ -1,0 +1,268 @@
+<!--
+@license
+Copyright (c) 2015 The expand.js authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This component is used to display a material button.
+
+@component mat-button
+@description This component is used to display a material button.
+@mixin xp-targeter http://www.expandjs.com/components/xp-targeter
+
+@dependency polymer Polymer/polymer#^0.5
+@dependency expandjs ExpandJS/expandjs
+@dependency mat-icon ExpandJS/mat-icon
+@dependency mat-ink ExpandJS/mat-ink
+@dependency mat-ripple ExpandJS/mat-ripple
+@dependency xp-anchor-state ExpandJS/xp-anchor-state
+@dependency xp-disabled-state ExpandJS/xp-disabled-state
+@dependency xp-focused-state ExpandJS/xp-focused-state
+@dependency xp-pressed-state ExpandJS/xp-pressed-state
+@dependency xp-targeter ExpandJS/xp-targeter
+
+@devDependency mat-demo ExpandJS/mat-demo
+@devDependency mat-tooltip ExpandJS/mat-tooltip
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../mat-icon/mat-icon.html">
+<link rel="import" href="../mat-ink/mat-ink.html">
+<link rel="import" href="../mat-ripple/mat-ripple.html">
+<link rel="import" href="../xp-anchor-state/xp-anchor-state.html">
+<link rel="import" href="../xp-disabled-state/xp-disabled-state.html">
+<link rel="import" href="../xp-focused-state/xp-focused-state.html">
+<link rel="import" href="../xp-pressed-state/xp-pressed-state.html">
+<link rel="import" href="../xp-targeter/xp-targeter.html">
+
+<polymer-element name="mat-button" constructor="MATButtonElement" attributes="color data disabled download empty focused href icon iconSrc invokes label pressed rel target">
+
+    <template>
+        <link rel="stylesheet" href="../xp-pressed-state/xp-pressed-state.css">
+        <style>
+            :host {
+                border-radius: 2px;
+                height: 36px;
+                margin: 6px 4px;
+                min-width: 88px;
+                text-align: center;
+
+                /* BUTTON */
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.01em;
+                line-height: 20px;
+                text-overflow: ellipsis;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            :host([empty]) {
+                display: none !important;
+            }
+
+            :host #matButtonWrapper {
+                border-radius: inherit;
+                height: 100%;
+            }
+
+            :host #matButtonAnchor {
+                display: block;
+                height: 100%;
+                overflow: hidden;
+                text-decoration: none;
+            }
+
+            :host #matButtonAnchor:after {
+                bottom: -6px;
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: -6px;
+            }
+
+            :host #matButtonAnchor[href]:hover {
+                text-decoration: underline;
+            }
+
+            :host #matButtonMain {
+                padding: 8px 12px;
+                position: relative;
+            }
+
+            :host #matButtonIcon {
+                left: 12px;
+                margin-top: -2px;
+                position: absolute;
+            }
+
+            :host #matButtonIcon ~ #matButtonLabel {
+                margin-left: 36px;
+            }
+        </style>
+        <template context="{{}}" is="xp-anchor-state" id="xpAnchorState" anchor="{{$.matButtonAnchor}}" download="{{download}}" href="{{href}}" rel="{{rel}}" target="{{target}}"></template>
+        <template context="{{}}" is="xp-disabled-state" id="xpDisabledState" disabled="{{disabled}}"></template>
+        <template context="{{}}" is="xp-focused-state" id="xpFocusedState" disabled="{{disabled}}" focused="{{focused}}"></template>
+        <template context="{{}}" is="xp-pressed-state" id="xpPressedState" disabled="{{disabled}}" invokes="{{invokes}}" pressed="{{pressed}}" target="{{target}}"></template>
+        <div id="matButtonWrapper">
+            <a id="matButtonAnchor">
+                <div id="matButtonMain">
+                    <template if="{{icon || iconSrc}}"><mat-icon id="matButtonIcon" color="{{color}}" disabled="{{disabled}}" name="{{icon}}" src="{{iconSrc}}"></mat-icon></template>
+                    <mat-ink id="matButtonLabel" color="{{color}}" disabled="{{disabled}}">{{label}}</mat-ink>
+                </div>
+            </a>
+            <mat-ripple context="{{}}" id="matButtonRipple" style="pointer-events: none"></mat-ripple>
+        </div>
+    </template>
+
+    <script>
+        XPComponent({
+
+            // MIXINS
+            mixins: ['xp-targeter'],
+
+            /*********************************************************************/
+
+            // COMPUTED
+            computed: {
+                'empty': '!icon && !iconSrc && !label'
+            },
+
+            // PUBLISH
+            publish: {
+
+                /**
+                 * The ink's color.
+                 *
+                 * @attribute color
+                 * @type string
+                 * @default ""
+                 */
+                color: {reflect: true, value: ''},
+
+                /**
+                 * The element's data.
+                 *
+                 * @attribute data
+                 * @type *
+                 */
+                data: {reflect: false, value: null},
+
+                /**
+                 * If set to true, the element is disabled.
+                 *
+                 * @attribute disabled
+                 * @type boolean
+                 * @default false
+                 */
+                disabled: {reflect: true, value: false},
+
+                /**
+                 * The anchor's download property's value.
+                 *
+                 * @attribute download
+                 * @type string
+                 * @default ""
+                 */
+                download: {reflect: true, value: ''},
+
+                /**
+                 * If set to true, the element is hidden.
+                 *
+                 * @attribute empty
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                empty: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the element is focused.
+                 *
+                 * @attribute focused
+                 * @type boolean
+                 * @default false
+                 */
+                focused: {reflect: true, value: false},
+
+                /**
+                 * The anchor's href property's value.
+                 *
+                 * @attribute href
+                 * @type string
+                 * @default ""
+                 */
+                href: {reflect: true, value: ''},
+
+                /**
+                 * The button's icon.
+                 *
+                 * @attribute icon
+                 * @type string
+                 * @default ""
+                 */
+                icon: {reflect: true, value: ''},
+
+                /**
+                 * The button's icon's src.
+                 *
+                 * @attribute iconSrc
+                 * @type string
+                 * @default ""
+                 */
+                iconSrc: {reflect: true, value: ''},
+
+                /**
+                 * The target's method to invoke on press.
+                 *
+                 * @attribute invokes
+                 * @type string
+                 * @default "toggle"
+                 */
+                invokes: {reflect: true, value: 'toggle'},
+
+                /**
+                 * The button's label.
+                 *
+                 * @attribute label
+                 * @type string
+                 * @default ""
+                 */
+                label: {reflect: true, value: ''},
+
+                /**
+                 * If set to true, the element is pressed.
+                 *
+                 * @attribute pressed
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                pressed: {reflect: true, value: false},
+
+                /**
+                 * The anchor's rel property's value.
+                 *
+                 * @attribute rel
+                 * @type string
+                 * @default ""
+                 */
+                rel: {reflect: true, value: ''},
+
+                /**
+                 * The `id` of the targeted element or the element itself.
+                 *
+                 * @attribute target
+                 * @type Element | string
+                 */
+                target: {reflect: false, value: null}
+            }
+        });
+    </script>
+
+</polymer-element>
