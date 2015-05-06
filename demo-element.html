@@ -1,0 +1,23 @@
+<link rel="import" href="../mat-demo/mat-demo.html">
+<link rel="import" href="../mat-tooltip/mat-tooltip.html">
+<link rel="import" href="mat-button.html">
+
+<polymer-element name="mat-button-demo" noscript>
+
+    <template>
+        <mat-demo label="mat-button">
+
+            <h1>Default</h1>
+            <mat-button label="Button"></mat-button>
+            <mat-button label="Colored" color="deep-orange-600"></mat-button>
+            <mat-button label="Disabled" disabled></mat-button>
+
+            <h1>Custom</h1>
+            <mat-button label="Icon" icon="action:favorite"></mat-button>
+            <mat-button label="Link" href="http://www.expandjs.com" target="_top"></mat-button>
+            <mat-tooltip tip="I am disabled"><mat-button label="Tooltip" disabled></mat-button></mat-tooltip>
+
+        </mat-demo>
+    </template>
+
+</polymer-element>
