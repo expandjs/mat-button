@@ -141,6 +141,29 @@ This element is used to display a material button.
 
             /*********************************************************************/
 
+            /**
+             * Fired when the active state changes.
+             *
+             * @event xp-active
+             * @param {Element} firer
+             * @param {boolean} isActive
+             * @bubbles
+             */
+
+            /**
+             * Fired when the context element is clicked.
+             *
+             * @event xp-activate
+             * @param {Element} firer
+             * @param {Element} target
+             * @param {string} invokes
+             * @param {boolean} isActive
+             * @bubbles
+             * @cancelable
+             */
+
+            /*********************************************************************/
+
             // COMPUTED
             computed: {
                 'empty': '!icon && !iconSrc && !label',
