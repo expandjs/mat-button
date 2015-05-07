@@ -42,7 +42,7 @@ This element is used to display a material button.
 <link rel="import" href="../xp-pressed-state/xp-pressed-state.html">
 <link rel="import" href="../xp-targeter/xp-targeter.html">
 
-<polymer-element name="mat-button" constructor="MATButtonElement" attributes="color data disabled download empty emptyLabel focused href icon iconSrc invokes label pressed rel target">
+<polymer-element name="mat-button" constructor="MATButtonElement" attributes="color data disabled download empty emptyLabel focused href icon iconSrc label pressed rel target">
 
     <template>
         <link rel="stylesheet" href="../xp-pressed-state/xp-pressed-state.css">
@@ -121,7 +121,7 @@ This element is used to display a material button.
         <template context="{{}}" is="xp-anchor-state" id="xpAnchorState" anchor="{{$.matButtonAnchor}}" download="{{download}}" href="{{href}}" rel="{{rel}}" target="{{target}}"></template>
         <template context="{{}}" is="xp-disabled-state" id="xpDisabledState" disabled="{{disabled}}"></template>
         <template context="{{}}" is="xp-focused-state" id="xpFocusedState" disabled="{{disabled}}" focused="{{focused}}"></template>
-        <template context="{{}}" is="xp-pressed-state" id="xpPressedState" disabled="{{disabled}}" invokes="{{invokes}}" pressed="{{pressed}}" target="{{target}}"></template>
+        <template context="{{}}" is="xp-pressed-state" id="xpPressedState" disabled="{{disabled}}" pressed="{{pressed}}" target="{{target}}"></template>
         <div id="matButtonWrapper">
             <a id="matButtonAnchor">
                 <div id="matButtonMain">
@@ -156,7 +156,6 @@ This element is used to display a material button.
              * @event xp-activate
              * @param {Element} firer
              * @param {Element} target
-             * @param {string} invokes
              * @param {boolean} isActive
              * @bubbles
              * @cancelable
@@ -263,15 +262,6 @@ This element is used to display a material button.
                  * @default ""
                  */
                 iconSrc: {reflect: true, value: ''},
-
-                /**
-                 * The target's method to invoke on press.
-                 *
-                 * @attribute invokes
-                 * @type string
-                 * @default "toggle"
-                 */
-                invokes: {reflect: true, value: 'toggle'},
 
                 /**
                  * The button's label.
