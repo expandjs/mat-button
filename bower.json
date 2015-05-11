@@ -1,7 +1,7 @@
 {
   "name": "mat-button",
   "license": "BSD-3-Clause",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "A custom element used to display a Material Design ink button",
   "homepage": "http://www.expandjs.com/elements/mat-button",
   "authors": [
