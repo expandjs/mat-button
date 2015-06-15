@@ -24,19 +24,19 @@
     "**/.*"
   ],
   "dependencies": {
-    "expandjs": "ExpandJS/expandjs",
-    "mat-icon": "ExpandJS/mat-icon",
-    "mat-ink": "ExpandJS/mat-ink",
-    "mat-ripple": "ExpandJS/mat-ripple",
-    "xp-anchor-state": "ExpandJS/xp-anchor-state",
-    "xp-disabled-state": "ExpandJS/xp-disabled-state",
-    "xp-focused-state": "ExpandJS/xp-focused-state",
-    "xp-pressed-state": "ExpandJS/xp-pressed-state",
-    "xp-targeter": "ExpandJS/xp-targeter",
+    "expandjs": "ExpandJS/expandjs#alpha",
+    "mat-icon": "ExpandJS/mat-icon#alpha",
+    "mat-ink": "ExpandJS/mat-ink#alpha",
+    "mat-ripple": "ExpandJS/mat-ripple#alpha",
+    "xp-anchor-state": "ExpandJS/xp-anchor-state#alpha",
+    "xp-disabled-state": "ExpandJS/xp-disabled-state#alpha",
+    "xp-focused-state": "ExpandJS/xp-focused-state#alpha",
+    "xp-pressed-state": "ExpandJS/xp-pressed-state#alpha",
+    "xp-targeter": "ExpandJS/xp-targeter#alpha",
     "polymer": "Polymer/polymer#^0.5"
   },
   "devDependencies": {
-    "mat-demo": "ExpandJS/mat-demo",
-    "mat-tooltip": "ExpandJS/mat-tooltip"
+    "mat-demo": "ExpandJS/mat-demo#alpha",
+    "mat-tooltip": "ExpandJS/mat-tooltip#alpha"
   }
 }
