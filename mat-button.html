@@ -1,0 +1,260 @@
+<!--
+@license
+Copyright (c) 2015 The ExpandJS authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This element is used to display a material button.
+
+@element mat-button
+@description A custom element used to display a Material Design ink button
+@keywords material design, material button, web app, html5, expandjs, web-components
+@group contents
+@homepage http://expandjs.com/elements/mat-button
+@demo http://expandjs.com/demo/mat-button
+
+@behavior xp-anchor-behavior http://expandjs.com/elements/xp-anchor-behavior
+@behavior xp-pressed-behavior http://expandjs.com/elements/xp-pressed-behavior
+@behavior xp-referral-behavior http://expandjs.com/elements/xp-referral-behavior
+
+@dependency polymer Polymer/polymer
+@dependency expandjs ExpandJS/expandjs
+@dependency mat-icon ExpandJS/mat-icon
+@dependency mat-ink ExpandJS/mat-ink
+@dependency mat-ripple ExpandJS/mat-ripple
+@dependency xp-anchor-behavior ExpandJS/xp-anchor-behavior
+@dependency xp-pressed-behavior ExpandJS/xp-pressed-behavior
+@dependency xp-referral-behavior ExpandJS/xp-referral-behavior
+
+@devDependency mat-demo ExpandJS/mat-demo
+@devDependency mat-icons ExpandJS/mat-icons
+@devDependency mat-tooltip ExpandJS/mat-tooltip
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../mat-icon/mat-icon.html">
+<link rel="import" href="../mat-ink/mat-ink.html">
+<link rel="import" href="../mat-ripple/mat-ripple.html">
+<link rel="import" href="../xp-anchor-behavior/xp-anchor-behavior.html">
+<link rel="import" href="../xp-pressed-behavior/xp-pressed-behavior.html">
+<link rel="import" href="../xp-referral-behavior/xp-referral-behavior.html">
+
+<dom-module id="mat-button">
+
+    <link rel="import" type="css" href="../xp-pressed-behavior/xp-pressed-behavior.css">
+
+    <style>
+        :host {
+            @apply(--mat-font-button);
+            border-radius: 2px;
+            height: 36px;
+            margin: 6px 4px;
+            text-align: center;
+        }
+
+        :host([empty]) {
+            display: none !important;
+        }
+
+        :host([empty-label]) {
+            width: 36px;
+        }
+
+        :host #matButtonWrapper {
+            border-radius: inherit;
+            height: 100%;
+        }
+
+        :host #matButtonAnchor {
+            display: block;
+            height: 100%;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        :host #matButtonAnchor:after {
+            bottom: -6px;
+            content: "";
+            left: -4px;
+            position: absolute;
+            right: -4px;
+            top: -6px;
+        }
+
+        :host #matButtonAnchor[href]:hover {
+            text-decoration: underline;
+        }
+
+        :host #matButtonMain {
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        :host #matButtonIcon {
+            left: 12px;
+            margin-top: -2px;
+            position: absolute;
+        }
+
+        :host([empty-label]) #matButtonIcon {
+            left: auto;
+            margin: -8px -6px;
+            position: relative;
+        }
+
+        :host #matButtonIcon:not([empty]) ~ #matButtonLabel {
+            margin-left: 36px;
+        }
+
+        :host(:hover) #matButtonRipple::shadow #matRippleBackground,
+        :host([focused]) #matButtonRipple::shadow #matRippleBackground {
+            opacity: 0.10;
+        }
+    </style>
+
+    <template>
+        <div id="matButtonWrapper">
+            <a id="matButtonAnchor">
+                <div id="matButtonMain">
+                    <mat-icon id="matButtonIcon" color="[[color]]" disabled="[[disabled]]" name="[[icon]]" src="[[iconSrc]]"></mat-icon>
+                    <mat-ink id="matButtonLabel" color="[[color]]" disabled="[[disabled]]">{{label}}</mat-ink>
+                </div>
+            </a>
+            <mat-ripple context="[[self]]" id="matButtonRipple" color="[[color]]"></mat-ripple>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+
+            // ELEMENT
+            is: 'mat-button',
+
+            // BEHAVIORS
+            behaviors: [
+                Polymer.XPAnchorBehavior,
+                Polymer.XPPressedBehavior,
+                Polymer.XPReferralBehavior
+            ],
+
+            /*********************************************************************/
+
+            // PROPERTIES
+            properties: {
+
+                /**
+                 * The ink's color.
+                 *
+                 * @attribute color
+                 * @type string
+                 */
+                color: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
+                },
+
+                /**
+                 * The element's data.
+                 *
+                 * @attribute data
+                 * @type *
+                 */
+                data: {
+                    notify: true,
+                    value: null
+                },
+
+                /**
+                 * If set to true, the element is hidden.
+                 *
+                 * @attribute empty
+                 * @type boolean
+                 * @notifies
+                 * @readonly
+                 */
+                empty: {
+                    computed: '_computeEmpty(icon, iconSrc, label)',
+                    notify: true,
+                    reflectToAttribute: true,
+                    type: Boolean
+                },
+
+                /**
+                 * If set to true, the label is hidden.
+                 *
+                 * @attribute empty-label
+                 * @type boolean
+                 * @notifies
+                 * @readonly
+                 */
+                emptyLabel: {
+                    computed: '_computeEmptyLabel(label)',
+                    notify: true,
+                    reflectToAttribute: true,
+                    type: Boolean
+                },
+
+                /**
+                 * The button's icon.
+                 *
+                 * @attribute icon
+                 * @type string
+                 */
+                icon: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
+                },
+
+                /**
+                 * The button's icon's src.
+                 *
+                 * @attribute icon-src
+                 * @type string
+                 */
+                iconSrc: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
+                },
+
+                /**
+                 * The button's label.
+                 *
+                 * @attribute label
+                 * @type string
+                 */
+                label: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
+                }
+            },
+
+            /*********************************************************************/
+
+            // COMPUTER
+            _computeEmpty: function (icon, iconSrc, label) {
+                return !icon && !iconSrc && !label;
+            },
+
+            // COMPUTER
+            _computeEmptyLabel: function (label) {
+                return !label;
+            },
+
+            /*********************************************************************/
+
+            // LISTENER
+            ready: function () {
+                this._setAnchor(this.$.matButtonAnchor);
+            }
+        });
+    </script>
+
+</dom-module>

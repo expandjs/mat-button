@@ -1,0 +1,41 @@
+{
+  "name": "mat-button",
+  "license": "BSD-3-Clause",
+  "version": "0.9.0",
+  "description": "A custom element used to display a Material Design ink button",
+  "homepage": "http://expandjs.com/elements/mat-button",
+  "authors": [
+    "Giuliano Rullo <g.rullo@expandjs.com>",
+    "Maurizio Stefàno <m.stefano@expandjs.com>",
+    "Robert Manolea <r.manolea@expandjs.com>"
+  ],
+  "keywords": [
+    "material design",
+    "material button",
+    "web app",
+    "html5",
+    "expandjs",
+    "web-components"
+  ],
+  "main": [
+    "mat-button.html"
+  ],
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "expandjs": "ExpandJS/expandjs",
+    "mat-icon": "ExpandJS/mat-icon",
+    "mat-ink": "ExpandJS/mat-ink",
+    "mat-ripple": "ExpandJS/mat-ripple",
+    "xp-anchor-behavior": "ExpandJS/xp-anchor-behavior",
+    "xp-pressed-behavior": "ExpandJS/xp-pressed-behavior",
+    "xp-referral-behavior": "ExpandJS/xp-referral-behavior",
+    "polymer": "Polymer/polymer"
+  },
+  "devDependencies": {
+    "mat-demo": "ExpandJS/mat-demo",
+    "mat-icons": "ExpandJS/mat-icons",
+    "mat-tooltip": "ExpandJS/mat-tooltip"
+  }
+}
