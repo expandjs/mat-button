@@ -1,7 +1,7 @@
 {
   "name": "mat-button",
   "license": "BSD-3-Clause",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A custom element used to display a Material Design ink button",
   "homepage": "http://expandjs.com/elements/mat-button",
   "authors": [
@@ -24,18 +24,18 @@
     "**/.*"
   ],
   "dependencies": {
-    "expandjs": "ExpandJS/expandjs",
-    "mat-icon": "ExpandJS/mat-icon",
-    "mat-ink": "ExpandJS/mat-ink",
-    "mat-ripple": "ExpandJS/mat-ripple",
-    "xp-anchor-behavior": "ExpandJS/xp-anchor-behavior",
-    "xp-pressed-behavior": "ExpandJS/xp-pressed-behavior",
-    "xp-referral-behavior": "ExpandJS/xp-referral-behavior",
-    "polymer": "Polymer/polymer"
+    "expandjs": "ExpandJS/expandjs#0.9.1",
+    "mat-icon": "ExpandJS/mat-icon#0.9.1",
+    "mat-ink": "ExpandJS/mat-ink#0.9.1",
+    "mat-ripple": "ExpandJS/mat-ripple#0.9.1",
+    "xp-anchor-behavior": "ExpandJS/xp-anchor-behavior#0.9.1",
+    "xp-pressed-behavior": "ExpandJS/xp-pressed-behavior#0.9.1",
+    "xp-referral-behavior": "ExpandJS/xp-referral-behavior#0.9.1",
+    "polymer": "Polymer/polymer#^1.0.4"
   },
   "devDependencies": {
-    "mat-demo": "ExpandJS/mat-demo",
-    "mat-icons": "ExpandJS/mat-icons",
-    "mat-tooltip": "ExpandJS/mat-tooltip"
+    "mat-demo": "ExpandJS/mat-demo#0.9.1",
+    "mat-icons": "ExpandJS/mat-icons#0.9.1",
+    "mat-tooltip": "ExpandJS/mat-tooltip#0.9.1"
   }
 }
