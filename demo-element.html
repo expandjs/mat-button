@@ -2,25 +2,40 @@
 <link rel="import" href="../mat-icons/action-icons.html">
 <link rel="import" href="../mat-icons/communication-icons.html">
 <link rel="import" href="../mat-icons/content-icons.html">
-<link rel="import" href="../mat-tooltip/mat-tooltip.html">
 <link rel="import" href="mat-button.html">
 
 <dom-module id="mat-button-demo">
 
     <template>
-        <mat-demo label="mat-button">
 
-            <div class="demo-title">Default</div>
+        <mat-demo label="Default">
+            <script type="text/html">
+                <mat-button label="Button"></mat-button>
+            </script>
             <mat-button label="Button"></mat-button>
-            <mat-button label="Colored" color="deep-orange-600"></mat-button>
-            <mat-button label="Disabled" disabled></mat-button>
-
-            <div class="demo-title">Custom</div>
-            <mat-button label="Icon" icon="action:favorite"></mat-button>
-            <mat-button label="Link" icon="content:link" href="http://expandjs.com" target="_blank"></mat-button>
-            <mat-tooltip tip="I am disabled"><mat-button label="Tooltip" icon="communication:message" disabled></mat-button></mat-tooltip>
-
         </mat-demo>
+
+        <mat-demo label="Colored">
+            <script type="text/html">
+                <mat-button label="Colored" color="deep-orange-600"></mat-button>
+            </script>
+            <mat-button label="Colored" color="deep-orange-600"></mat-button>
+        </mat-demo>
+
+        <mat-demo label="Disabled">
+            <script type="text/html">
+                <mat-button label="Disabled" disabled></mat-button>
+            </script>
+            <mat-button label="Disabled" disabled></mat-button>
+        </mat-demo>
+
+        <mat-demo label="Link">
+            <script type="text/html">
+                <mat-button label="Link" icon="content:link" href="http://expandjs.com" target="_blank"></mat-button>
+            </script>
+            <mat-button label="Link" icon="content:link" href="http://expandjs.com" target="_blank"></mat-button>
+        </mat-demo>
+
     </template>
 
     <script>
