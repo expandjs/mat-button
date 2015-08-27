@@ -29,7 +29,7 @@
     "xp-anchor-behavior": "ExpandJS/xp-anchor-behavior#0.9.8",
     "xp-pressed-behavior": "ExpandJS/xp-pressed-behavior#0.9.8",
     "xp-referral-behavior": "ExpandJS/xp-referral-behavior#0.9.8",
-    "polymer": "Polymer/polymer#^1.0.0"
+    "polymer": "Polymer/polymer#^1.1.0"
   },
   "devDependencies": {
     "mat-demo": "ExpandJS/mat-demo#0.9.8",
