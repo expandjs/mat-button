@@ -73,79 +73,78 @@ The button's text color can be changed accordingly to the
 
 <dom-module id="mat-button">
 
-    <link rel="import" type="css" href="../xp-pressed-behavior/xp-pressed-behavior.css">
-
-    <style>
-        :host {
-            @apply(--mat-font-button);
-            border-radius: 2px;
-            height: 36px;
-            margin: 6px 0;
-            text-align: center;
-        }
-
-        :host([empty]) {
-            display: none !important;
-        }
-
-        :host([empty-label]) {
-            width: 36px;
-        }
-
-        :host #matButtonWrapper {
-            border-radius: inherit;
-            height: 100%;
-        }
-
-        :host #matButtonAnchor {
-            display: block;
-            height: 100%;
-            outline: 0;
-            overflow: hidden;
-            text-decoration: none;
-        }
-
-        :host #matButtonAnchor:after {
-            bottom: -6px;
-            content: "";
-            left: -4px;
-            position: absolute;
-            right: -4px;
-            top: -6px;
-        }
-
-        :host #matButtonAnchor[href]:hover {
-            text-decoration: underline;
-        }
-
-        :host #matButtonMain {
-            padding: 8px 12px;
-            position: relative;
-        }
-
-        :host #matButtonIcon {
-            left: 12px;
-            margin-top: -2px;
-            position: absolute;
-        }
-
-        :host([empty-label]) #matButtonIcon {
-            left: auto;
-            margin: -8px -6px;
-            position: relative;
-        }
-
-        :host #matButtonIcon:not([empty]) + #matButtonLabel {
-            margin-left: 36px;
-        }
-
-        :host(:hover) #matButtonRipple::shadow #matRippleBackground,
-        :host([focused]) #matButtonRipple::shadow #matRippleBackground {
-            opacity: 0.10;
-        }
-    </style>
-
     <template>
+
+        <style include="xp-pressed-styles">
+            :host {
+                @apply(--mat-font-button);
+                border-radius: 2px;
+                height: 36px;
+                margin: 6px 0;
+                text-align: center;
+            }
+
+            :host([empty]) {
+                display: none !important;
+            }
+
+            :host([empty-label]) {
+                width: 36px;
+            }
+
+            :host #matButtonWrapper {
+                border-radius: inherit;
+                height: 100%;
+            }
+
+            :host #matButtonAnchor {
+                display: block;
+                height: 100%;
+                outline: 0;
+                overflow: hidden;
+                text-decoration: none;
+            }
+
+            :host #matButtonAnchor:after {
+                bottom: -6px;
+                content: "";
+                left: -4px;
+                position: absolute;
+                right: -4px;
+                top: -6px;
+            }
+
+            :host #matButtonAnchor[href]:hover {
+                text-decoration: underline;
+            }
+
+            :host #matButtonMain {
+                padding: 8px 12px;
+                position: relative;
+            }
+
+            :host #matButtonIcon {
+                left: 12px;
+                margin-top: -2px;
+                position: absolute;
+            }
+
+            :host([empty-label]) #matButtonIcon {
+                left: auto;
+                margin: -8px -6px;
+                position: relative;
+            }
+
+            :host #matButtonIcon:not([empty]) + #matButtonLabel {
+                margin-left: 36px;
+            }
+
+            :host(:hover) #matButtonRipple::shadow #matRippleBackground,
+            :host([focused]) #matButtonRipple::shadow #matRippleBackground {
+                opacity: 0.10;
+            }
+        </style>
+
         <div id="matButtonWrapper">
             <a id="matButtonAnchor" tabindex="-1">
                 <div id="matButtonMain">
@@ -155,6 +154,7 @@ The button's text color can be changed accordingly to the
             </a>
             <mat-ripple context="[[self]]" id="matButtonRipple" color="[[color]]"></mat-ripple>
         </div>
+
     </template>
 
     <script>
