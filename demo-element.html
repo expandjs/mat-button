@@ -1,12 +1,15 @@
 <link rel="import" href="../mat-demo/mat-demo.html">
-<link rel="import" href="../mat-icons/action-icons.html">
-<link rel="import" href="../mat-icons/communication-icons.html">
-<link rel="import" href="../mat-icons/content-icons.html">
 <link rel="import" href="mat-button.html">
 
 <dom-module id="mat-button-demo">
 
     <template>
+
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
 
         <mat-demo name="mat-button" type="element" url="http://expandjs.com/elements/mat-button">
 
@@ -33,9 +36,9 @@
 
             <mat-demo-panel label="Link">
                 <script type="text/html">
-                    <mat-button label="Link" icon="content:link" href="http://expandjs.com" target="_blank"></mat-button>
+                    <mat-button label="Link" href="http://expandjs.com" target="_blank"></mat-button>
                 </script>
-                <mat-button label="Link" icon="content:link" href="http://expandjs.com" target="_blank"></mat-button>
+                <mat-button label="Link" href="http://expandjs.com" target="_blank"></mat-button>
             </mat-demo-panel>
 
         </mat-demo>
